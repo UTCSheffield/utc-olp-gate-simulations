@@ -47,31 +47,6 @@ to this section's matching END comment to see page-specific styles.
     format("opentype");
 }
 
-/* Our remix on glitch button */
-.btn--remix {
-  font-family: HK Grotesk;
-  padding: 0.75rem 1rem;
-  font-size: 1.1rem;
-  line-height: 1rem;
-  font-weight: 500;
-  height: 2.75rem;
-  align-items: center;
-  cursor: pointer;
-  background: #FFFFFF;
-  border: 1px solid #000000;
-  box-sizing: border-box;
-  border-radius: 4px;
-  text-decoration: none;
-  color: #000;
-  white-space: nowrap;
-  margin-left: auto;
-}
-.btn--remix img {
-  margin-right: 0.5rem;
-}
-.btn--remix:hover {
-  background-color: #D0FFF1;
-}
 
 /* Navigation grid */
 .footer {
@@ -98,6 +73,253 @@ a:not(.btn--remix):visited {
   background: var(--color-primary);
 }
 
+/* END Glitch hello-app default styles */
+
+/* Circuit Simulator Styles */
+body {
+  margin: 0;
+  padding: 8px;
+  font-family: var(--font-family);
+  background: var(--color-bg);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  gap: 8px;
+}
+
+.control-panel {
+  background: #ffffff;
+  border-radius: 6px;
+  padding: 10px 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 13px;
+}
+
+.simulation-controls,
+.view-controls,
+.timeline-controls {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.simulation-controls {
+  border-right: 2px solid #e0e0e0;
+  padding-right: 12px;
+}
+
+.view-controls {
+  border-right: 2px solid #e0e0e0;
+  padding-right: 12px;
+}
+
+.timeline-controls {
+  flex-wrap: wrap;
+}
+
+.btn-control,
+.btn-small {
+  padding: 6px 10px;
+  border: 1px solid #cccccc;
+  background: #f5f5f5;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: var(--font-family);
+  font-size: 12px;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  min-height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-small {
+  padding: 5px 8px;
+  min-width: 28px;
+  min-height: 28px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.btn-control:hover,
+.btn-small:hover {
+  background: #ffffff;
+  border-color: #999999;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.btn-control:active,
+.btn-small:active {
+  background: #e8e8e8;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) inset;
+}
+
+.btn-control:disabled,
+.btn-small:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.control-panel label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.control-panel input[type="checkbox"] {
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+  margin: 0;
+}
+
+.circuit-display {
+  flex: 1;
+  background: #ffffff;
+  border-radius: 6px;
+  overflow: auto;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  min-height: 300px;
+}
+
+.monitor-section {
+  background: #ffffff;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-height: 150px;
+  overflow: auto;
+}
+
+.monitor {
+  padding: 8px;
+}
+
+.io-panel {
+  background: #ffffff;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 8px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  min-height: 60px;
+}
+
+
+#iopanel form > div {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  gap: 16px !important;
+  flex-shrink: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+#iopanel form > div > div {
+  flex-shrink: 0 !important;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+#iopanel input,
+#iopanel button {
+  padding: 6px 8px;
+  border-radius: 4px;
+  border: 1px solid #cccccc;
+  font-family: var(--font-family);
+  font-size: 13px;
+  flex-shrink: 0 !important;
+}
+
+#iopanel input {
+  background: #f9f9f9;
+}
+
+#iopanel input:focus {
+  outline: none;
+  border-color: #0066cc;
+  background: #ffffff;
+  box-shadow: 0 0 3px rgba(0, 102, 204, 0.3);
+}
+
+#iopanel button {
+  background: #f5f5f5;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+#iopanel button:hover {
+  background: #ffffff;
+  border-color: #999999;
+}
+
+/* Tooltips */
+button[title],
+label[title] {
+  position: relative;
+}
+
+button[title]:hover::after,
+label[title]:hover::after {
+  content: attr(title);
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333333;
+  color: #ffffff;
+  padding: 6px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  white-space: nowrap;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+button[title]:hover::before,
+label[title]:hover::before {
+  content: '';
+  position: absolute;
+  bottom: 115%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: #333333;
+  z-index: 1000;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .control-panel {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .simulation-controls,
+  .view-controls,
+  .timeline-controls {
+    border-right: none;
+    padding-right: 0;
+    width: 100%;
+  }
+  
+  .circuit-display {
+    min-height: 200px;
+  }
+}
 .footer .links {
   padding: 0.5rem 1rem 1.5rem;
   white-space: nowrap;

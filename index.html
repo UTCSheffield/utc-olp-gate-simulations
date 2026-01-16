@@ -9,23 +9,33 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/digitaljs@0.12.1/dist/main.js"></script>
   </head>
   <body>
-    <div>
-        <button name="start" type="button">▶️</button>
-        <button name="stop" type="button">⏹️</button>
-    </div>
-    <div id="paper">
-    </div>
-    <div>
-        <input name="fixed" type="checkbox" ><label>Fixed Mode</label>
-        <button name="json" type="button">Serialize and Reload</button>
-        <input name="layout" type="checkbox"><label>Include layout information</label>
-    </div>
-    <div>
-        <button name="ppt_up" type="button">+</button><button name="ppt_down">-</button><button name="left">&lt;</button><button name="right">&gt;</button><button name="live">live</button>
-    </div>
-    <div id="monitor">
-    </div>
-    <div id="iopanel">
+    <div class="container">
+      <div class="control-panel">
+        <div class="simulation-controls">
+          <button name="start" type="button" class="btn-control" title="Start simulation">▶️ Start</button>
+          <button name="stop" type="button" class="btn-control" title="Stop simulation">⏹️ Stop</button>
+        </div>
+        <div class="view-controls">
+          <label title="Fixed mode keeps gates in place"><input name="fixed" type="checkbox">Fixed Mode</label>
+          <label title="Include layout data in serialization"><input name="layout" type="checkbox">Save Layout</label>
+        </div>
+        <div class="timeline-controls" title="Controls for the signal timing diagram">
+          <button name="ppt_down" type="button" class="btn-small" title="Zoom out">−</button>
+          <button name="ppt_up" type="button" class="btn-small" title="Zoom in">+</button>
+          <button name="left" type="button" class="btn-small" title="Scroll left">&lt;</button>
+          <button name="right" type="button" class="btn-small" title="Scroll right">&gt;</button>
+          <button name="live" type="button" class="btn-small" title="Follow signal live">⊕ Live</button>
+          <button name="json" type="button" class="btn-control" title="Reload circuit">Reload</button>
+        </div>
+      </div>
+      <div id="paper" class="circuit-display">
+      </div>
+      <div class="monitor-section">
+        <div id="monitor" class="monitor">
+        </div>
+      </div>
+      <div id="iopanel" class="io-panel">
+      </div>
     </div>
     <script>
       var circuit, monitor, monitorview, iopanel, paper;
